@@ -18,7 +18,7 @@
     import BasicButton from './basicComponents/BasicButton'
 
     export default {
-        name: 'parent',
+        name: 'componentWithFoo',
 
         components: {
             BasicButton
@@ -53,7 +53,7 @@
 
             filter(element) {
                 return element.filter(item => {
-                    return item.$options.name === 'parent'
+                    return item.$options.name === 'componentWithFoo'
                 })
             },
 
