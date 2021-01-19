@@ -8,6 +8,12 @@
     </div>
 </template>
 
+<script>
+    export default {
+        name: 'OtherComponent'
+    }
+</script>
+
 <style scoped>
     .other-component__title {
         margin: 10px 0;
