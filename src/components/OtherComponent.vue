@@ -2,9 +2,9 @@
     <div class="other-component">
         <div class="other-component__title">OtherComponent</div>
 
-            <slot>
+        <slot>
 
-            </slot>
+        </slot>
     </div>
 </template>
 

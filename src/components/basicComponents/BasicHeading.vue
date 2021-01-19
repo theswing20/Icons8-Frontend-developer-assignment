@@ -1,6 +1,6 @@
 <template>
     <div class="basic-heading">
-        <BasicGradient class="basic-heading__gradient" />
+        <BasicGradient class="basic-heading__gradient"/>
         <div class="basic-heading__title">{{ title }}</div>
     </div>
 </template>

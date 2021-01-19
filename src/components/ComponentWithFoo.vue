@@ -2,12 +2,16 @@
     <div class="component-with-foo">
         <div class="component-with-foo__title">ComponentWithFoo</div>
 
-        <BasicButton class="component-with-foo__button" @click.native="childrenSearch()">{{ imageIsActive ? 'Hide image' : 'Show image' }}</BasicButton>
+        <BasicButton class="component-with-foo__button" @click.native="childrenSearch()">{{ imageIsActive ? 'Hide image'
+            : 'Show image' }}
+        </BasicButton>
 
         <transition name="component-fade">
-            <img v-if="imageIsActive" class="component-with-foo__img" src="https://icons8.com/vue-static/landings/page-index/products/preview/upscaler.png" alt="Icon8 image">
+            <img v-if="imageIsActive" class="component-with-foo__img"
+                 src="https://icons8.com/vue-static/landings/page-index/products/preview/upscaler.png"
+                 alt="Icon8 image">
         </transition>
-        
+
         <div class="component-with-foo__slot">
             <slot></slot>
         </div>
