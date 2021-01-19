@@ -2,7 +2,7 @@
     <div class="component-with-foo">
         <div class="component-with-foo__title">ComponentWithFoo</div>
 
-        <BasicButton class="component-with-foo__button" @click.native="childsSearch()">{{ imageIsActive ? 'Hide image' : 'Show image' }}</BasicButton>
+        <BasicButton class="component-with-foo__button" @click.native="childrenSearch()">{{ imageIsActive ? 'Hide image' : 'Show image' }}</BasicButton>
 
         <transition name="component-fade">
             <img v-if="imageIsActive" class="component-with-foo__img" src="https://icons8.com/vue-static/landings/page-index/products/preview/upscaler.png" alt="Icon8 image">
@@ -16,6 +16,7 @@
 
 <script>
     import BasicButton from './basicComponents/BasicButton'
+    import recursiveSearch from "../services";
 
     export default {
         name: 'componentWithFoo',
@@ -31,40 +32,20 @@
         },
 
         methods: {
-            recursiveSearch(arr) {
-                let result = []
-
-                arr.$children.forEach(item => {
-                    result.push(item)
-
-                    if (item.$children.length) {
-                        const children = this.recursiveSearch(item)
-
-                        children.forEach(item => {
-                            if (typeof item === "object") {
-                                result.push(item)
-                            }
-                        })
-                    }
-                })
-
-                return result
-            },
-
             filter(element) {
                 return element.filter(item => {
                     return item.$options.name === 'componentWithFoo'
                 })
             },
 
-            childsSearch() {
+            childrenSearch() {
                 this.foo(0)
 
-                const childs = this.recursiveSearch(this)
-                const childs2 = this.filter(childs)
+                const filterChildren = this.filter(recursiveSearch(this))
 
-                if (childs2.length) {
-                    childs2.map((child, index) => {
+
+                if (filterChildren.length) {
+                    filterChildren.map((child, index) => {
                         child.foo(++index)
                     })
                 }
