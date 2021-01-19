@@ -1,4 +1,4 @@
-# component-app
+# Icons8 Frontend developer assignment
 
 ## Project setup
 ```
