@@ -1,32 +1,44 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <BasicWrapper>
+      <BasicHeading title="Icons8 Frontend developer assignment" />
+
+      <ComponentWithFoo>
+        1
+        <OtherComponent>
+          Random component
+          <ComponentWithFoo>
+            2
+            <ComponentWithFoo>
+              3
+            </ComponentWithFoo>
+          </ComponentWithFoo>
+        </OtherComponent>
+        <ComponentWithFoo>
+          4
+        </ComponentWithFoo>
+        <ComponentWithFoo>
+          5
+        </ComponentWithFoo>
+      </ComponentWithFoo>
+    </BasicWrapper>
+
     <router-view/>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<script>
+  import ComponentWithFoo from "./components/ComponentWithFoo";
+  import OtherComponent from "./components/OtherComponent";
+  import BasicHeading from "./components/basicComponents/BasicHeading"
+  import BasicWrapper from "./components/basicComponents/BasicWrapper"
+  export default {
+    name: 'Home',
+    components: {
+      ComponentWithFoo,
+      OtherComponent,
+      BasicHeading,
+      BasicWrapper
+    },
+  }
+</script>
